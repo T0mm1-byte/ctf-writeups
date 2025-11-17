@@ -27,7 +27,7 @@ We can retrieve the message using minimodem but we don't know the baudrate
 
 We can try all the common baudrate for RTTY like 45 and 50 but we see only garbage
 
-Then we remember the decription and see that the .wav file is named file10.wav
+Then we remember the description and see that the .wav file is named file10.wav
 
 Let's try with 10 as baudrate:
 
