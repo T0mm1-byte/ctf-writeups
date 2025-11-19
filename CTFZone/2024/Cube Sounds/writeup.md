@@ -32,7 +32,7 @@ But we can also see that the flag is mainly written in file 5.wav so we just nee
 
 Looking at all the images we find that the correct order is 7.wav -> 5.wav -> 3.wav
 
-Let's concatenate them in a new file usin sox 7.wav 5.wav 3.wav flag.wav from terminal and have a look at flag.wav with qsstv
+Let's concatenate them in a new file usin "sox 7.wav 5.wav 3.wav flag.wav" from terminal and have a look at flag.wav with qsstv
 
 <img width="1478" height="953" alt="Screenshot 2025-11-19 100611" src="https://github.com/user-attachments/assets/715af328-6912-4d3f-adab-f219d1c275ff" />
 
