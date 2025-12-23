@@ -1,10 +1,10 @@
-# OVERVIEW
+## OVERVIEW
 
     - This is the first LockIT Pro Lock.
     - This lock is not attached to any hardware security module.
 
 
-# DETAILS
+## DETAILS
 
     The LockIT Pro a.01  is the first of a new series  of locks. It is
     controlled by a  MSP430 microcontroller, and is  the most advanced
@@ -27,7 +27,7 @@
 
     This is Software Revision 01.
 
-# SOLUTION
+## SOLUTION
 
 Let's start with the main:
 
