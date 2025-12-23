@@ -93,4 +93,4 @@ Let's look at check_password:
 
 This function just checks byte by byte that the user's input is equal to the password created
 
-So the solve is "I\2=FVh"
+So the solve is *I\2=FVh*
