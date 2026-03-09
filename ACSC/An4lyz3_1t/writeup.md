@@ -26,7 +26,7 @@ There is a single channel signal and the duration of each high and low is a mult
 
 This is a common frequency for UART using 57600 as baudrate.
 
-It's probably UART also because the signal is high in idle and goes to low before send 8 bits.
+It's probably UART also because the signal is high in idle and goes to low before sending 8 bits.
 
 In this case we see that the bit sent are 9 beacuse there's also a parity bit.
 
