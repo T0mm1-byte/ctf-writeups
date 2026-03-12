@@ -18,9 +18,9 @@ We have to discover what this firmware does.
 
 ## Solution
 
-First thing first let's run binwalk on firmware.bin.
+First thing first let's run binwalk firmware.bin:
 
-
+<img width="1351" height="385" alt="Screenshot 2026-03-12 111140" src="https://github.com/user-attachments/assets/21102d86-949f-4215-bcf7-9078af77b40f" />
 
 Nothing interesting. Since it's a Raspberry Pi it's likely that there is some high level code somewhere.
 
@@ -73,11 +73,11 @@ This code verifies that the first 4 bytes of non volatile memory (nvm) are equal
 
 The nvm is somewhere in firmware.bin. To find the offset we can use hexdump -C firmware.bin | grep "10 53 7f 2b".
 
-
+<img width="953" height="22" alt="Screenshot 2026-03-12 111151" src="https://github.com/user-attachments/assets/721377c5-3e89-45fa-850f-8ad28b96e81e" />
 
 The next move is to get the 90 bytes from that offset using hexdump -s 0xff000 -n 90 -C firmware.bin
 
-
+<img width="948" height="162" alt="Screenshot 2026-03-12 111200" src="https://github.com/user-attachments/assets/f2cfdc05-814d-4522-9982-c129cafa03a5" />
 
 Now we can just write a script to retrieve the cmd instruction:
 
@@ -107,6 +107,6 @@ print(instr)
 
 Running the script we find:
 
-
+<img width="523" height="25" alt="Screenshot 2026-03-12 111210" src="https://github.com/user-attachments/assets/b73b319c-b781-4bd7-8f5b-7a9560917e44" />
 
 So the instruction is just an echo that prints the flag *ACSC{349040c16c36fbba8c484b289e0dae6f}*
