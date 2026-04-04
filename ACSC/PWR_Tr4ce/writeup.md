@@ -20,36 +20,15 @@ AES key length = 16 bytes
 
 ## Overview
 
-As the description suggests, this challenge is composed by two .npy file: one with the plaintext (50, all of them are 16 bytes) and the other with power traces (50, one per plaintext, each of them consists in 5000 points).
-We have to recover the flag (the encryption key) using the power traces.
+As the description suggests, this challenge is composed by two .npy file: one with the plaintext (50, all of them are 16 bytes) and the other with power traces (50, one per plaintext, each of them consists in 5000 points). The goal recover the flag (the encryption key) using the power traces.
 
 ## Solution
 
-This challenge is based on a well known AES vulnerability to side channel attacks.
-
-We have to perform a CPA (Correlation Power Analysis) on the given power traces to get the key/flag.
-
-How does it work? Basically when the microcontroller does something we can measure the voltage.
-
-Other than the alimentation voltage there is another one that changes dynamically based on the operation.
-
-For example, changing a value from 0b0011 to 0b1111 consumes more power than changing 0b0111 to 0b1111.
-
-We can measure the impact of a modification using the Hamming Weight which is the number of '1' of the result.
-
-The first steps of an AES algorithm are AddRoundKey and SubBytes. 
-
-The latter is particularly vulnerable to CPA because it isn't a linear operation so the correlation coefficient is severly reduce if we are using the wrong byte.
-
-Since SubBytes is sbox[pt[i]^key[i]] we can guess each byte of the key (256 possibilities * 16 bytes), try each of them and study the correlation between the Hamming Weight of the result of SubBytes and the power traces.
-
-To do so we will use the Pearson correlation coefficient (that will be an array of 5000 entries, we have to take the max value, that's the point when the operation is happening) and the byte that maximizes it will be our best guess.
-
-It's important to take the biggest absolute value of correlation since we don't really care if is positive or negative.
+This challenge is based on a well known AES vulnerability to side channel attacks. The idea is to perform a CPA (Correlation Power Analysis) on the given power traces to get the key/flag. How does it work? Basically when the microcontroller does something we can measure the power used. Other than the alimentation power there is another one that changes dynamically based on the operation. For example, changing a value from 0b0011 to 0b1111 consumes more power than changing 0b0111 to 0b1111. It's possible measure the impact of a modification using the Hamming Weight which is the number of '1' of the result. The first steps of an AES algorithm are AddRoundKey and SubBytes. The latter is particularly vulnerable to CPA because it isn't a linear operation so the correlation coefficient is severly reduce if we are using the wrong byte. Since SubBytes is sbox[pt[i]^key[i]] it's possible guess each byte of the key (256 possibilities * 16 bytes), try each of them and study the correlation between the Hamming Weight of the result of SubBytes and the power traces. To do so I used the Pearson correlation coefficient (that will be an array of 5000 entries, we have to take the max value, that's the point when the operation is happening) and the byte that maximizes it will be our best guess. It's important to take the biggest absolute value of correlation since it's irrelevant if it is positive or negative.
 
 <img width="574" height="89" alt="Screenshot 2026-03-12 215153" src="https://github.com/user-attachments/assets/72207b4a-be4a-4bca-b904-b05d4c271458" />
 
-We have to do it for each of key's byte. Let's use a script to do so.
+I wrote a script to do it for each of key's byte.
 
 ```python
 import numpy as np
@@ -118,4 +97,4 @@ for n in bestguess:
 print(key)
 ```
 
-After a couple of seconds we will see the key and flag *ACSC{Pwr!4n4lyz}*
+After a couple of seconds I got the key and flag *ACSC{Pwr!4n4lyz}*

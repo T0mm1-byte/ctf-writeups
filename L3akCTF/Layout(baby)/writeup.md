@@ -10,8 +10,8 @@ Authors: Suvoni
 I was drawing some metal layers for my integrated circuit layout, when I noticed some of them looked a little weird...
 
 ## Overview
-This challenge is composed by a .gds file. We can open it with KLayout.
+This challenge is composed by a .gds file. 
 
 ## Solution
-When we open the file we can clearly see the flag:
+I opened the file and clearly saw the flag:
 *L3AK{w3LcoM3_To_HArDw4R3!}*

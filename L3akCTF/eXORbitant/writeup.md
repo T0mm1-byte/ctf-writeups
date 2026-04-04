@@ -11,22 +11,15 @@ What is this circuit doing to the flag?
 
 ## Overview
 This challenge is composed by a .circ file and a .png file.
-
 The .circ file shows a digital circuit that takes the flag as input and encrypts it using 16 Xor ports.
-
 The .png file shows the result of the encryption in the memory.
 
 ## Solution
-Looking at the circuit we can see that the flag is divided in hextet and each bit of each hextet is used by multiple xor ports.
-
+Looking at the circuit I saw that the flag is divided in hextet and each bit of each hextet is used by multiple xor ports.
 Each xor port produces a bit of the encrypted hextet.
-
-We have to find, for each encrypted hextet, which hextet makes it using that scheme.
-
-## Exploit
-Since a hextet is just 2 bytes there are only 2^16 possible configuration and we can find the correct one by bruteforce.
-
-After getting all the correct hextet we can simply translate each byte in ascii and see the flag.
+The goal is to find, for each encrypted hextet, which hextet makes it using that scheme.
+Since a hextet is just 2 bytes there are only 2^16 possible configuration and I found the correct one by bruteforce.
+After getting all the correct hextet I simply translated each byte in ascii and see the flag.
 
 ```python
 def HextetToChar(hextet):

@@ -12,32 +12,18 @@ VHDL: Very Happy Digital Leprechauns
 Imagine a world where all digital logic and circuits are maintained by cheerful, tiny leprechauns who take great joy in ensuring that your hardware designs work flawlessly. They busily manage all the gates, flip-flops, and signals, always with a smile on their tiny faces!
 
 ## Overview
-This challenge is composed by two .vhdl files and one .txt file. 
-
-prng.vhdl is the description of a module that, as the name suggest, produces pseudo random numbers.
-
-encrypt.vhdl is the description of the main module that encrypts the flag.
-
-output.txt is the result of the encryption.
+This challenge is composed by two .vhdl files and one .txt file. prng.vhdl is the description of a module that, as the name suggest, produces pseudo random numbers. encrypt.vhdl is the description of the main module that encrypts the flag. output.txt is the result of the encryption.
 
 ## Solution
-Let's start with prng.vhdl. This module takes as input the signals clock, enable, reset and a seed made of 28 bits. It has as a byte as output.
-
+I started by analyzing prng.vhdl. This module takes as input the signals clock, enable, reset and a seed made of 28 bits. It has as a byte as output.
 When reset is high it sets his own 28 bit register prng_reg with the input seed. 
-
 When reset is low and enable is high, on clock's posedges, it calculate a new 28 bits value that stores in prng_reg and sends as output its 8 most significant bits.
+The module uses a linear congruential generator (as the challenge's name suggests) to change prng_reg and all the parameters used are known.
 
-The module uses a linear congruential generator (as the challenge's name suggest) to change prng_reg and we know all the parameters used.
+Then I analyzed encrypt.vhdl. This module reads the seed and the flag, uses the seed to generate a byte for each char of the flag, xors each byte got from prng.vhdl with a char and writes the result in output.txt. It firstly sets reset high to let prng.vhdl store the seed and then sets reset low and enables high to use the module.
 
-Let's analyze encrypt.vhdl now. This module reads the seed and the flag, uses the seed to generate a byte for each char of the flag, xors each byte got from prng.vhdl with a char and writes the result in output.txt.
-
-It first sets reset high to let prng.vhdl store the seed and then sets reset low and enable high to use the module.
-
-In output.txt we can see the encrypted flag that is 40 byte long.
-
-LCG isn't random so, knowing the parameters, we can reproduce it. So we have potentially 28 bits to bruteforce. It's possible but we can do it much quicker.
-
-We now that the flag must start with "L3AK{" so, xoring each of these chars with the encoded flag's respective one, we know the first 5 outputs of prng.vhdl.
+In output.txt there is the encrypted flag that is 40 byte long.
+LCG isn't random so, knowing the parameters, I could reproduce it. So I had potentially 28 bits to bruteforce. It's possible but I could do it much quicker knowing that the flag must start with "L3AK{". So, xoring each of these chars with the encoded flag's respective one, I knew the first 5 outputs of prng.vhdl.
 
 ```python
 print(hex(ord('L') ^ 0x50)) #0x1C
@@ -46,15 +32,11 @@ print(hex(ord('A') ^ 0xA8)) #0xE9
 print(hex(ord('K') ^ 0x7F)) #0x34
 print(hex(ord('{') ^ 0x3B)) #0x40
 ```
-This is a huge advantage: we don't know anything about the original seed but we know the first output must be 0x1C so we can directly start from here. 
+This is a huge advantage: I didn't know anything about the original seed but I knew the first output must be 0x1C so I could directly start from here. 
+This means that the seed after the first iteration is between 0x1C00000 and 0x1CFFFFF and I had to bruteforce only 20 bits.
+Using the other 4 values as conditions for the next iterations I could select only the initial seeds that produces "L3AK{".
+With that I reversed xor the encrypted flag and retrieved the original one using a python script.
 
-This means that the seed after the first iteration is between 0x1C00000 and 0x1CFFFFF and we have to bruteforce only 20 bits.
-
-Using the other 4 values as conditions for the next iterations we can select only the initial seed that produces "L3AK{".
-
-With that we can reverse xor the encrypted flag and retrieve the original one.
-
-## Exploit
 ```python
 def generateXorKey(seed):
     A = 73067557
@@ -98,4 +80,4 @@ for seed in range(0x1C00000, 0x1D00000):
             printFlag(xor_key)
 
 ```
-This will print the flag *L3AK{Y0u_C4N_d0_M4NY_Th1ngS_w1Th_VHDL!!}*
+This printed the flag *L3AK{Y0u_C4N_d0_M4NY_Th1ngS_w1Th_VHDL!!}*

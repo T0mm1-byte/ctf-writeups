@@ -14,19 +14,13 @@ Security personnel in our company have spotted a suspicious USB flash drive. The
 
 This challenge is composed by a .bin file.
 
-We have to discover what this firmware does.
-
 ## Solution
 
-First thing first let's run binwalk firmware.bin:
+I started by running "binwalk firmware.bin":
 
 <img width="1351" height="385" alt="Screenshot 2026-03-12 111140" src="https://github.com/user-attachments/assets/21102d86-949f-4215-bcf7-9078af77b40f" />
 
-Nothing interesting. Since it's a Raspberry Pi it's likely that there is some high level code somewhere.
-
-Let's search for it using strings firmware.bin > strings.txt.
-
-At the end of strings.txt there's a python code (just the interesting part):
+Nothing interesting. Since it's a Raspberry Pi it's likely that there is some high level code somewhere. I searched for it using "strings firmware.bin > strings.txt". At the end of strings.txt there's a python code (just the interesting part):
 
 ```python
 import storage
@@ -70,16 +64,15 @@ time.sleep(0xFFFFFFFF)
 ```
 
 This code verifies that the first 4 bytes of non volatile memory (nvm) are equal to w, then extracts the next 86 bytes, splits them in two blocks of 43 bytes each and xors them to get a cmd instruction. Then it opens the cmd and executes the instruction.
-
-The nvm is somewhere in firmware.bin. To find the offset we can use hexdump -C firmware.bin | grep "10 53 7f 2b".
+The nvm is somewhere in firmware.bin. To find the offset I used hexdump -C firmware.bin | grep "10 53 7f 2b". The bytes I searched for with grep are those of w, that means they are the starting point of nvm.
 
 <img width="953" height="22" alt="Screenshot 2026-03-12 111151" src="https://github.com/user-attachments/assets/721377c5-3e89-45fa-850f-8ad28b96e81e" />
 
-The next move is to get the 90 bytes from that offset using hexdump -s 0xff000 -n 90 -C firmware.bin
+The next move is to get the 90 bytes from that offset using "hexdump -s 0xff000 -n 90 -C firmware.bin".
 
 <img width="948" height="162" alt="Screenshot 2026-03-12 111200" src="https://github.com/user-attachments/assets/f2cfdc05-814d-4522-9982-c129cafa03a5" />
 
-Now we can just write a script to retrieve the cmd instruction:
+Then I wrote a script to retrieve the cmd instruction:
 
 ```python
 nvm = [0x10, 0x53, 0x7f, 0x2b, 0x41, 0xa0, 0x71, 0x51, 0x9f,
@@ -105,7 +98,7 @@ for i in range(K):
 print(instr)
 ```
 
-Running the script we find:
+Running the script I found:
 
 <img width="523" height="25" alt="Screenshot 2026-03-12 111210" src="https://github.com/user-attachments/assets/b73b319c-b781-4bd7-8f5b-7a9560917e44" />
 
