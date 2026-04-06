@@ -18,26 +18,21 @@ This challenge is composed by a .csv file.
 
 I opened the .csv and took a look at the content. There are 5000 rows. Each row contains the row index, the timestamp and the volt measurements of two channels: CH1 and CH2.
 
-
-
+<img width="348" height="706" alt="Screenshot 2026-04-06 092247" src="https://github.com/user-attachments/assets/4ab8a5d1-c2fb-45cf-ac5f-ccfc0fafed75" />
 
 I searched for the protocol used by Volvo and found that it's CAN Bus.
 
-
-
+<img width="892" height="136" alt="Screenshot 2026-04-06 092336" src="https://github.com/user-attachments/assets/14021560-eadd-4db7-a91c-3eac0db1cd99" />
 
 In particular I saw that the DIM (dash) uses the LS CAN with a frequency of 125Kbps. Since there are the timestamps in the .csv I saw that the difference between two of them is 4 microseconds, that means a sampling frequency of 250Kbps and so 2 sample for each bit transmitted.
 
-
-
+<img width="861" height="283" alt="Screenshot 2026-04-06 092354" src="https://github.com/user-attachments/assets/06bc92ab-f406-44d5-a2ae-54553249f208" />
 
 How are the bits encoded? There are two channels: CAN Low and CAN High. When their voltage difference is smaller than a specific treshold the bit is recessive (1), when is bigger the bit is dominant (0).
 
+<img width="851" height="717" alt="Screenshot 2026-04-06 093043" src="https://github.com/user-attachments/assets/f58b08ed-5042-4261-8022-f39d613e16b9" />
 
-
-
-
-The next thing I looked for was the layer 2 protocol to exchange frames. There are 4 types of frames: data, remote, error and overload. After I read the whole datasheet (it's link is in sources.md) I tried to understand which type of frames I was looking at by measure their length. At the end of each data and remote frame there is the End of Frame, that consists in 7 bit set to 1, and then there is a interframe space made of at least 3 bit set to 1. The Start of Frame is always a bit set to 0. This means I could roughly measure the size of each frame using the distance between the first and the last 0 before a long sequence of 1s. I found 13 frames and their length was between 127 and 133 bits. It's important to consider the stuffing: in a frame 6 consecutive identical bits are considered an error so if there are 5 consecutive identical bits the protocol adds a complementary bit. In the decoding phase the stuffing bits must be removed. I thought that the frames I found were of the same type and the length difference was caused by stuffing. So I wrote a script to measure each frame before and after the destuffing.
+The next thing I looked for was the layer 2 protocol to exchange frames. There are 4 types of frames: data, remote, error and overload. After I read the whole datasheet (link in sources.md) I tried to understand which type of frames I was looking at by measure their length. At the end of each data and remote frame there is the End of Frame, that consists in 7 bit set to 1, and then there is a interframe space made of at least 3 bit set to 1. The Start of Frame is always a bit set to 0. This means I could roughly measure the size of each frame using the distance between the first and the last 0 before a long sequence of 1s. I found 13 frames and their length was between 127 and 133 bits. It's important to consider the stuffing: in a frame 6 consecutive identical bits are considered an error so if there are 5 consecutive identical bits the protocol adds a complementary bit. In the decoding phase the stuffing bits must be removed. I thought that the frames I found were of the same type and the length difference was caused by stuffing. So I wrote a script to measure each frame before and after the destuffing.
 
 ```python
 import csv
@@ -75,9 +70,7 @@ with open('gas.csv', mode='r', encoding='utf-8') as file:
 
 The results was exactly what I expected. Each frame was made of 120/121 bits.
 
-
-
-
+<img width="1721" height="936" alt="Screenshot 2026-04-06 095221" src="https://github.com/user-attachments/assets/cf2cc2a1-fde2-4598-8910-04be68654c9d" />
 
 The only frame that could have this size is a Data Frame Extended with 8 bytes of data. The structure is:
 
@@ -96,7 +89,7 @@ The only frame that could have this size is a Data Frame Extended with 8 bytes o
 - ACK Delimeter: 1 bit (always 1)
 - End of Frame: 7 bits (always 1s)
 
-Without the last 3 fields and considering 64 bits of Data (Data Length = 1000) the frame size is 120 bits. At this point I was sure I was looking at data frames and that probably the flag was in the Data field so I wrote a script to show each field of the ustuffed frames. Unfortunately, the results were completely off with almost every field containing wrong bits. I tried to reverse the order of tne frames and bit and somehow it worked.
+Without the last 3 fields and considering 64 bits of Data (Data Length = 1000) the frame size is 120 bits (excluding the series of 1s at the end of the frame). At this point I was sure I was looking at data frames and that probably the flag was in the Data field so I wrote a script to show each field of the ustuffed frames. Unfortunately, the results were completely off with almost every field containing wrong bits. I tried to reverse the order of frames and bits and somehow it worked.
 
 ```python
 import csv
@@ -142,8 +135,7 @@ with open('gas.csv', mode='r', encoding='utf-8') as file:
         print("\n\n")
 ```
 
-
-
+<img width="1624" height="702" alt="Screenshot 2026-04-06 101854" src="https://github.com/user-attachments/assets/740d329a-48db-49ac-818c-dfc19631ac54" />
 
 I really don't know why it works. The timestamps show that the samples are arranged in the .csv from most recent to least recent so the first bits of each frame should be those with the biggest row index (for each range) and not viceversa. Maybe the timestamps are a decoy? Who knows. Still, at this point I had 13 correct data frames and I tried to print them.
 
@@ -174,18 +166,15 @@ print(s)
 
 The result was:
 
-
+<img width="972" height="27" alt="Screenshot 2026-04-06 090019" src="https://github.com/user-attachments/assets/75051fc9-a978-49ee-9f45-abf4d27fc294" />
 
 I thought there were some wrong chars so I looked for "D!ecode" in the data matrix I did and excluded the column with that "!" from the printing. the result was:
 
-
-
+<img width="815" height="24" alt="Screenshot 2026-04-06 102838" src="https://github.com/user-attachments/assets/74ee99bb-8aa1-4680-8cb2-360684bfb61e" />
 
 Then I concatenated the two base64 parts and decode it
 
-
-
-
+<img width="706" height="70" alt="Screenshot 2026-04-06 102854" src="https://github.com/user-attachments/assets/703ca7c1-0102-421b-824a-ae2b4398e2af" />
 
 I got the flag *crew{st3p_0N_tHe_g4s!}*
 
