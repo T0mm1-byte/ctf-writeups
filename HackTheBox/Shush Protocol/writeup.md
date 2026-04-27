@@ -18,7 +18,6 @@ This challenge is composed by a .pcapng file.
 
 I opened the .pcapng using wireshark and saw it's a modbus communication, a protocol used by PLCs. There are three types of messages: the "reading registers" with func code 3, the "reading coils" with func code 1 and some unkown type with func code 102. I filtered the traffic for types (frame[0x49] == 0x01/0x03/0x66) and watched the results. All the packets with func code 1 and 3 are equal and they read only 0s. There is one packet with func code 102 with a different size from the other 102s.
 
-
-
+<img width="1918" height="881" alt="Image" src="https://github.com/user-attachments/assets/81c02b69-9b5e-4f57-ac33-eb36bf62fb92" />
 
 The flag is *HTB{50m371m35_cu570m_p2070c01_423_n07_3n0u9h7}*
