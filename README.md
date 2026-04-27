@@ -27,9 +27,9 @@ Note that the difficulty level is chosen only by myself so it may differ from th
 |-----------|------|------------|
 | [PWR_Tr4ce](https://github.com/T0mm1-byte/ctf-writeups/tree/main/ACSC/PWR_Tr4ce) | Side Channel Attack | Medium |
 | [An4lyz3_1t](https://github.com/T0mm1-byte/ctf-writeups/tree/main/ACSC/An4lyz3_1t) | Logic Signals/Protocols | Very Easy |
-| [Debug] | Logic Signals/Protocols | Very Easy |
-| [Debugging Interface] | Logic Signals/Protocols | Very Easy |
-| [Shush Protocol] | HDL/PLC/PCB Reversing | Very Easy |
+| [Debug](https://github.com/T0mm1-byte/ctf-writeups/tree/main/HackTheBox/Debug) | Logic Signals/Protocols | Very Easy |
+| [Debugging Interface](https://github.com/T0mm1-byte/ctf-writeups/tree/main/HackTheBox/Debugging%20Interface) | Logic Signals/Protocols | Very Easy |
+| [Shush Protocol](https://github.com/T0mm1-byte/ctf-writeups/tree/main/HackTheBox/Shush%20Protocol) | Logic Signals/Protocols | Very Easy |
 | [Brick By Brick](https://github.com/T0mm1-byte/ctf-writeups/tree/main/UMassCTF/BrickByBrick) | Logic Signals/Protocols | Easy |
 | [Alpha](https://github.com/T0mm1-byte/ctf-writeups/tree/main/BYUCTF/Alpha) | Logic Signals/Protocols | Medium |
 | [gasgasgas](https://github.com/T0mm1-byte/ctf-writeups/tree/main/CrewCTF/gasgasgas) | Logic Signals/Protocols | Medium |
@@ -43,9 +43,9 @@ Note that the difficulty level is chosen only by myself so it may differ from th
 | [Beneath the Surface](https://github.com/T0mm1-byte/ctf-writeups/tree/main/L3akCTF/Beneath%20the%20Surface) | RF | Medium |
 | [RFID_demod](https://github.com/T0mm1-byte/ctf-writeups/tree/main/ACSC/RFID_demod) | RF | Medium |
 | [Layout](https://github.com/T0mm1-byte/ctf-writeups/tree/main/L3akCTF/Layout(baby)) | HDL/PLC/PCB Reversing | Very Easy |
-| [Critical Flight] | HDL/PLC/PCB Reversing | Very Easy |
-| [Low Logic] | HDL/PLC/PCB Reversing | Easy |
-| [It's Oops PM] | HDL/PLC/PCB Reversing | Easy |
+| [Critical Flight](https://github.com/T0mm1-byte/ctf-writeups/tree/main/HackTheBox/Critical%20Flight) | HDL/PLC/PCB Reversing | Very Easy |
+| [Low Logic](https://github.com/T0mm1-byte/ctf-writeups/tree/main/HackTheBox/Low%20Logic) | HDL/PLC/PCB Reversing | Easy |
+| [It's Oops PM](https://github.com/T0mm1-byte/ctf-writeups/tree/main/HackTheBox/It's%20Oops%20PM) | HDL/PLC/PCB Reversing | Easy |
 | [Spy PLC](https://github.com/T0mm1-byte/ctf-writeups/tree/main/IranTechOlympicsCTF/Spy_PLC) | HDL/PLC/PCB Reversing | Easy |
 | [eXORbitant](https://github.com/T0mm1-byte/ctf-writeups/tree/main/L3akCTF/eXORbitant) | HDL/PLC/PCB Reversing | Medium |
 | [VHDLCG](https://github.com/T0mm1-byte/ctf-writeups/tree/main/L3akCTF/VHDLCG(crypto)) | HDL/PLC/PCB Reversing | Medium |
