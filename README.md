@@ -34,6 +34,8 @@ Note that the difficulty level is chosen only by myself so it may differ from th
 | [Alpha](https://github.com/T0mm1-byte/ctf-writeups/tree/main/BYUCTF/Alpha) | Logic Signals/Protocols | Medium |
 | [gasgasgas](https://github.com/T0mm1-byte/ctf-writeups/tree/main/CrewCTF/gasgasgas) | Logic Signals/Protocols | Medium |
 | [Sal](https://github.com/T0mm1-byte/ctf-writeups/tree/main/BYUCTF/Sal) | Logic Signals/Protocols | Medium |
+| [Firmware]() | Firmware Reversing | Very easy |
+| [The Needle]() | Firmware Reversing | Easy |
 | [picopico](https://github.com/T0mm1-byte/ctf-writeups/tree/main/ACSC/picopico) | Firmware Reversing | Easy |
 | [Crash Landing](https://github.com/T0mm1-byte/ctf-writeups/tree/main/DownUnderCTF/Crash-Landing) | Firmware Reversing | Medium |
 | [Celestial](https://github.com/T0mm1-byte/ctf-writeups/tree/main/L3akCTF/Celestial(radio)) | RF | Easy |
