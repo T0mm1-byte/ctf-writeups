@@ -1,9 +1,18 @@
 This repo is made to store the hardware challenges I solved. In each challenge's directory there are:
 - writeup.md: the file that explains my solution
 - sources.md: the links to the web pages I think may be useful to learn everything needed to solve the challenge (no AI slop). It may be absent for particularly easy challenges.
-- everything else is the attachments of the challenge. It may be a zip file or the content of a zip file I exctracted, it depends. Still, there is everything needed to try to solve the challenge.
+- everything else is the attachments of the challenge. It may be a zip file or the content of a zip file I exctracted, it depends. Still, there is everything needed to try to solve the challenge. If the challenge is not freely accessible (es. HackTheBox VIP challs) there would be writeup.md and eventually sources.md but not the attachments.
 
-To make life easier I made a list of the challenges that can be found here. They are sorted by type and difficulty.
+I post a challenge only if I have the solution. About remote challenges there are three cases:
+- I've played the ctf so I could access the remote resources.
+- I haven't played the ctf but the remote resources are needed only to get the flag, that means I have to understand the vuln and how to exploit it from the attachments and then do it on the remote source to get the flag.
+- I haven't played the ctf and the remote resources are needed to understand vuln and or exploit.
+  
+In the third case I don't even bother to try it, there's no fun if I can't solve it. In the second case two things may happen:
+- There is a public writeup with the flag made by someone that played the ctf. In this case I confront the writeup with my solution and pretend to have found the flag by myself if I found the right solution.
+- There isn't a public writeup. In this case my writeup has the solution I found but without a flag and without the chance to know if my idea is right or wrong.
+
+To better organize this repo I made a list of the challenges that can be found here. They are sorted by type and difficulty.
 
 The types are:
 - Side Channel Attack:retrieve the flag or a crypto key from a set of measurments.
@@ -37,6 +46,7 @@ Note that the difficulty level is chosen only by myself so it may differ from th
 | [Firmware](https://github.com/T0mm1-byte/ctf-writeups/tree/main/GreyCTF/Firmware) | Firmware Reversing | Very easy |
 | [The Needle](https://github.com/T0mm1-byte/ctf-writeups/tree/main/HackTheBox/The%20Needle) | Firmware Reversing | Easy |
 | [picopico](https://github.com/T0mm1-byte/ctf-writeups/tree/main/ACSC/picopico) | Firmware Reversing | Easy |
+| [Dumb Internet Of Things](https://github.com/T0mm1-byte/ctf-writeups/tree/main/TyphoonConCTF/DumbInternetOfThings) | Firmware Reversing | Medium |
 | [Crash Landing](https://github.com/T0mm1-byte/ctf-writeups/tree/main/DownUnderCTF/Crash-Landing) | Firmware Reversing | Medium |
 | [Celestial](https://github.com/T0mm1-byte/ctf-writeups/tree/main/L3akCTF/Celestial(radio)) | RF | Easy |
 | [Communication Gateway](https://github.com/T0mm1-byte/ctf-writeups/tree/main/L3akCTF/Communication%20Gateway(radio)) | RF | Easy |
