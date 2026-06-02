@@ -18,7 +18,7 @@ This challenge is composed by an elf file and a .txt file.
 
 The .txt file is pretty useless and the elf file simply does a dump of the EEPROM that is clearly the encrypted flag.
 
-
+<img width="450" height="371" alt="Screenshot 2026-06-02 165257" src="https://github.com/user-attachments/assets/a889e338-179f-4cb0-b5cc-7735c1d0c890" />
 
 I noticed that the first and the third byte were the same and the format flag is QnQSec{} so I just tried to xor Q with 0x95 and use it as a key to xor each byte.
 
