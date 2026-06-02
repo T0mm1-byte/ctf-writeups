@@ -42,8 +42,10 @@ Note that the difficulty level is chosen only by myself so it may differ from th
 | [Brick By Brick](https://github.com/T0mm1-byte/ctf-writeups/tree/main/UMassCTF/BrickByBrick) | Logic Signals/Protocols | Easy |
 | [Alpha](https://github.com/T0mm1-byte/ctf-writeups/tree/main/BYUCTF/Alpha) | Logic Signals/Protocols | Medium |
 | [gasgasgas](https://github.com/T0mm1-byte/ctf-writeups/tree/main/CrewCTF/gasgasgas) | Logic Signals/Protocols | Medium |
+| [Mission Pinpossible]() | Logic Signals/Protocols | Medium |
 | [Sal](https://github.com/T0mm1-byte/ctf-writeups/tree/main/BYUCTF/Sal) | Logic Signals/Protocols | Medium |
-| [Firmware](https://github.com/T0mm1-byte/ctf-writeups/tree/main/GreyCTF/Firmware) | Firmware Reversing | Very easy |
+| [Smart Coffee]() | Firmware Reversing | Very Easy |
+| [Firmware](https://github.com/T0mm1-byte/ctf-writeups/tree/main/GreyCTF/Firmware) | Firmware Reversing | Very Easy |
 | [The Needle](https://github.com/T0mm1-byte/ctf-writeups/tree/main/HackTheBox/The%20Needle) | Firmware Reversing | Easy |
 | [picopico](https://github.com/T0mm1-byte/ctf-writeups/tree/main/ACSC/picopico) | Firmware Reversing | Easy |
 | [Dumb Internet Of Things](https://github.com/T0mm1-byte/ctf-writeups/tree/main/TyphoonConCTF/DumbInternetOfThings) | Firmware Reversing | Medium |
@@ -56,6 +58,7 @@ Note that the difficulty level is chosen only by myself so it may differ from th
 | [RFID_demod](https://github.com/T0mm1-byte/ctf-writeups/tree/main/ACSC/RFID_demod) | RF | Medium |
 | [Layout](https://github.com/T0mm1-byte/ctf-writeups/tree/main/L3akCTF/Layout(baby)) | HDL/PLC/PCB Reversing | Very Easy |
 | [Critical Flight](https://github.com/T0mm1-byte/ctf-writeups/tree/main/HackTheBox/Critical%20Flight) | HDL/PLC/PCB Reversing | Very Easy |
+| [Not Your Karnaugh Diagram]() | HDL/PLC/PCB Reversing | Very Easy |
 | [Low Logic](https://github.com/T0mm1-byte/ctf-writeups/tree/main/HackTheBox/Low%20Logic) | HDL/PLC/PCB Reversing | Easy |
 | [It's Oops PM](https://github.com/T0mm1-byte/ctf-writeups/tree/main/HackTheBox/It's%20Oops%20PM) | HDL/PLC/PCB Reversing | Easy |
 | [Spy PLC](https://github.com/T0mm1-byte/ctf-writeups/tree/main/IranTechOlympicsCTF/Spy_PLC) | HDL/PLC/PCB Reversing | Easy |

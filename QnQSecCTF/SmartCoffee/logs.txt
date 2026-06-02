@@ -1,0 +1,25 @@
+Booting SmartCoffee v1.2 (build 2025-10-15)
+[    0.000000] Early console initialized
+[    0.004321] CPU: ARM Cortex-M4 r0p1
+[    0.012348] rtc-pcf8563: registered as rtc0
+[    0.045901] mmc0: host init - card present
+[    0.120014] i2c /dev/i2c-1: detected device at 0x50
+[    0.120256] i2c /dev/i2c-1: detected device at 0x1a
+[    0.135602] spi0.0: registered flash (winbond)
+[    0.220731] adc: calibration complete
+[    0.332100] gpio: irqchip registered
+[    0.995012] eeprom: reading primary image (addr=0x0000, len=8192)
+[    0.995030] eeprom: checksum 0x4f2a
+[    1.120512] usbcore: new interface driver usb-storage
+[    1.221003] wlan0: firmware missing - disabled
+[    1.332445] system: services startup complete
+[    1.500000] watchdog: feeding watchdog
+--- device info ---
+Device: SmartCoffee v1.2
+PCB: SC-2025-REV1
+Device Serial: SC-01-ABC123
+Bootloader: U-Boot 2021.04
+Kernel: 5.10.124
+[    2.000000] entering userland
+[    2.100000] diagnostics: self-test passed
+
