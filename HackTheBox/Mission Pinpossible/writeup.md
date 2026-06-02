@@ -18,11 +18,17 @@ This challenge is composed by a .logicdata file and a .jpeg that shows a led dis
 
 I started reading the datasheet of both the display and the extender. I found out that the display as a map where each char rapresentation is linked to its ascii encoding (for example, if I want to write an 'A' in the display I have to send a 0x41 to it) but the particular thing is how it takes the bytes. 
 
+<img width="849" height="894" alt="Screenshot 2026-06-01 190042" src="https://github.com/user-attachments/assets/f230b641-5ed4-4ea4-a4d5-5d37b763555c" />
 
+<img width="899" height="736" alt="Screenshot 2026-06-01 190220" src="https://github.com/user-attachments/assets/25e7c612-9a08-43b6-b941-904a935f924c" />
+
+<img width="1442" height="771" alt="Screenshot 2026-06-02 162531" src="https://github.com/user-attachments/assets/e1a2155d-70ed-4843-8dcd-6c99af03a27c" />
+
+<img width="1412" height="647" alt="Screenshot 2026-06-02 162624" src="https://github.com/user-attachments/assets/e8b14cb3-a827-4dd7-97bc-ea4ad1e47bad" />
 
 The extender has 8 GPIO pins that are used to write the data but the four least significant of them are used as control signals and not to transmit data. That means that to write a byte the extender must send two bytes and in each of them the four most significant bits are the nibble of the real byte. For example, to send "0x41" the extender will send "0x4X" and "0x1X". Actually to transmit a single nibble it's necessary to transmit three byte: "0xX9", "0xXD" and "0xX9". The bit that changes between 0xD and 0x9 is the EN bit and it should go from low to high to low again. The four lower bits are RS = 1 (the extender is sending a data, not a command), RW = 0 (write operation), EN (0 and 1 as explained before) and BL = 1 (4 bit mode, each byte transmitted contains 4 bit of data). This explain why 0x9 and 0xD as lower nibble in each transmitted byte. So what I expected was that, for example, the sequence 0x49 0x4D 0x49 0x19 0x1D 0x19 = "A". I opened the .logicfile with saleae 1.x.y (the old version) and applied its embedded I2C analyzer to see the bytes.
 
-
+<img width="1608" height="549" alt="Screenshot 2026-06-02 172059" src="https://github.com/user-attachments/assets/966db3d2-a126-47e6-a0a8-a227e2e27e80" />
 
 I saw that each block of transmission is "Enter Password" followed by a sequence of "0x2A" and an arbitrary last byte. The first two last bytes were "H" and "T" so I was pretty sure that I should just recover the last bytes of each block and so I did. Honestly I had no idea about how to script it so I just did it by hand.
 
