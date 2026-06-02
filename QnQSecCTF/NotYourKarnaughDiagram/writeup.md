@@ -20,6 +20,6 @@ This challenge is composed by a .pdf file.
 
 In the pdf there are a Karnaugh Diagram and a Truth Table to complete. And that's it, this is the whole challenge. 
 
-
+<img width="835" height="861" alt="Screenshot 2026-06-02 170158" src="https://github.com/user-attachments/assets/79060b68-1538-44f3-8733-984ec971a051" />
 
 I completed the table and got the flag *QnQSec{0110 0110 0001 0001}*
