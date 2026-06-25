@@ -16,7 +16,7 @@ This challenge is composed by a .sal file.
 
 Firstly I opened the .sal file using saleae logic and applied the SPI analyzer. 
 
-
+<img width="1497" height="851" alt="Screenshot 2026-06-25 192354" src="https://github.com/user-attachments/assets/c743551b-6792-43c7-9373-78377ea14592" />
 
 I saw that the whole interaction is divided in three small blocks and that in each of them the MISO channel and the MOSI channel have alternately a byte of information and a byte that is 0x00. Furthermore each information byte is ascii-printable so I exported all the data as a .csv and wrote a python script to see which strings each block contains.
 
@@ -54,7 +54,7 @@ with open('roman.csv', mode='r', encoding='utf-8') as file:
 
 The result is:
 
-
+<img width="420" height="67" alt="Screenshot 2026-06-25 172911" src="https://github.com/user-attachments/assets/fba52e26-7caf-4a71-9272-2aa14ac58274" />
 
 The first block is useless. The third one contains the encrypted flag. The second one suggests to read the third block as an ancient roman: it's a clear reference to Caesar's cipher. Knowing that the flag format is "ASIS{}" I added these lines at the previous script:
 
