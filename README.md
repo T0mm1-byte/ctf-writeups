@@ -40,6 +40,7 @@ Note that the difficulty level is chosen only by myself so it may differ from th
 | [Debugging Interface](https://github.com/T0mm1-byte/ctf-writeups/tree/main/HackTheBox/Debugging%20Interface) | Logic Signals/Protocols | Very Easy |
 | [Shush Protocol](https://github.com/T0mm1-byte/ctf-writeups/tree/main/HackTheBox/Shush%20Protocol) | Logic Signals/Protocols | Very Easy |
 | [Brick By Brick](https://github.com/T0mm1-byte/ctf-writeups/tree/main/UMassCTF/BrickByBrick) | Logic Signals/Protocols | Easy |
+| [Roman Wire](https://github.com/T0mm1-byte/ctf-writeups/tree/main/IranTechOlympicsCTF/Roman_Wire)| Logic Signals/Protocols | Easy |
 | [Alpha](https://github.com/T0mm1-byte/ctf-writeups/tree/main/BYUCTF/Alpha) | Logic Signals/Protocols | Medium |
 | [gasgasgas](https://github.com/T0mm1-byte/ctf-writeups/tree/main/CrewCTF/gasgasgas) | Logic Signals/Protocols | Medium |
 | [Mission Pinpossible](https://github.com/T0mm1-byte/ctf-writeups/tree/main/HackTheBox/Mission%20Pinpossible) | Logic Signals/Protocols | Medium |
