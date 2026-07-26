@@ -50,6 +50,7 @@ Note that the difficulty level is chosen only by myself so it may differ from th
 | [The Needle](https://github.com/T0mm1-byte/ctf-writeups/tree/main/HackTheBox/The%20Needle) | Firmware Reversing | Easy |
 | [picopico](https://github.com/T0mm1-byte/ctf-writeups/tree/main/ACSC/picopico) | Firmware Reversing | Easy |
 | [Dumb Internet Of Things](https://github.com/T0mm1-byte/ctf-writeups/tree/main/TyphoonConCTF/DumbInternetOfThings) | Firmware Reversing | Medium |
+| [Olympics Login](https://github.com/T0mm1-byte/ctf-writeups/tree/main/IranTechOlympicsCTF/OlympicsLogin) | Firmware Reversing | Medium |
 | [Crash Landing](https://github.com/T0mm1-byte/ctf-writeups/tree/main/DownUnderCTF/Crash-Landing) | Firmware Reversing | Medium |
 | [Celestial](https://github.com/T0mm1-byte/ctf-writeups/tree/main/L3akCTF/Celestial(radio)) | RF | Easy |
 | [Communication Gateway](https://github.com/T0mm1-byte/ctf-writeups/tree/main/L3akCTF/Communication%20Gateway(radio)) | RF | Easy |
