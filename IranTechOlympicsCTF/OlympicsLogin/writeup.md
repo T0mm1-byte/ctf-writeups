@@ -14,6 +14,8 @@ This challenge is composed by a .bin file that is a Cortex-M firmware.
 
 ## Solution
 
+*Being a Bare-Metal firmware, it haven't got debug symbols. In the photos you will see the functions' names given by me, in the original they were sub_[address]*
+
 Using the "file" command I saw the binary has the Flash at 0x8000000 and the RAM at 0x20000000 so it's clearly an STM. I opened it in IDA and went to the reset handler.
 
 <img width="767" height="675" alt="Screenshot 2026-07-26 110016" src="https://github.com/user-attachments/assets/0083ca20-f5f1-4746-82d8-90100dd230fd" />
