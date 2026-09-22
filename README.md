@@ -15,9 +15,9 @@ In the third case I don't even bother to try it, there's no fun if I can't solve
 To better organize this repo I made a list of the challenges that can be found here. They are sorted by type and difficulty.
 
 The types are:
-- Side Channel Attack:retrieve the flag or a crypto key from a set of measurments.
+- Side Channel:retrieve the flag or a crypto key from a set of measurments.
 - Digital signals/Protocols: analyzing digital signals and protocols.
-- Firmware Reversing: reversing firmware.
+- Firmware Reversing: reversing bare-metal firmware or embedded linux.
 - RF: analyzing analogical/RF signals.
 - HDL/PLC/PCB Reversing: reversing HDL/PLC languages, PCBs and electronic circuits.
 
@@ -34,7 +34,9 @@ Note that the difficulty level is chosen only by myself so it may differ from th
 
 | Challenge | Type | Difficulty |
 |-----------|------|------------|
-| [PWR_Tr4ce](https://github.com/T0mm1-byte/ctf-writeups/tree/main/ACSC/PWR_Tr4ce) | Side Channel Attack | Medium |
+| [Integration Par Parties](https://github.com/T0mm1-byte/ctf-writeups/tree/main/FCSC/Integration%20Par%20Parties) | Side Channel | Easy |
+| [SCator](https://github.com/T0mm1-byte/ctf-writeups/tree/main/FCSC/SCator) | Side Channel | Easy |
+| [PWR_Tr4ce](https://github.com/T0mm1-byte/ctf-writeups/tree/main/ACSC/PWR_Tr4ce) | Side Channel | Medium |
 | [An4lyz3_1t](https://github.com/T0mm1-byte/ctf-writeups/tree/main/ACSC/An4lyz3_1t) | Logic Signals/Protocols | Very Easy |
 | [Debug](https://github.com/T0mm1-byte/ctf-writeups/tree/main/HackTheBox/Debug) | Logic Signals/Protocols | Very Easy |
 | [Debugging Interface](https://github.com/T0mm1-byte/ctf-writeups/tree/main/HackTheBox/Debugging%20Interface) | Logic Signals/Protocols | Very Easy |
@@ -61,6 +63,9 @@ Note that the difficulty level is chosen only by myself so it may differ from th
 | [Layout](https://github.com/T0mm1-byte/ctf-writeups/tree/main/L3akCTF/Layout(baby)) | HDL/PLC/PCB Reversing | Very Easy |
 | [Critical Flight](https://github.com/T0mm1-byte/ctf-writeups/tree/main/HackTheBox/Critical%20Flight) | HDL/PLC/PCB Reversing | Very Easy |
 | [Not Your Karnaugh Diagram](https://github.com/T0mm1-byte/ctf-writeups/tree/main/QnQSecCTF/NotYourKarnaughDiagram) | HDL/PLC/PCB Reversing | Very Easy |
+| [Badd Circuit](https://github.com/T0mm1-byte/ctf-writeups/tree/main/FCSC/Badd%20Circuit) | HDL/PLC/PCB Reversing | Easy |
+| [Sbox](https://github.com/T0mm1-byte/ctf-writeups/tree/main/FCSC/Sbox) | HDL/PLC/PCB Reversing | Easy |
+| [Ne Pas Jeter l'Eponge](https://github.com/T0mm1-byte/ctf-writeups/tree/main/FCSC/Ne%20Pas%20Jeter%20Eponge) | HDL/PLC/PCB Reversing | Easy |
 | [Low Logic](https://github.com/T0mm1-byte/ctf-writeups/tree/main/HackTheBox/Low%20Logic) | HDL/PLC/PCB Reversing | Easy |
 | [It's Oops PM](https://github.com/T0mm1-byte/ctf-writeups/tree/main/HackTheBox/It's%20Oops%20PM) | HDL/PLC/PCB Reversing | Easy |
 | [Spy PLC](https://github.com/T0mm1-byte/ctf-writeups/tree/main/IranTechOlympicsCTF/Spy_PLC) | HDL/PLC/PCB Reversing | Easy |
