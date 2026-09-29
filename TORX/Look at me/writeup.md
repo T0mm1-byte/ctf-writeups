@@ -16,8 +16,9 @@ This was the second of six hardware challenges available in place at TORX finals
 
 I typed "load 1" and then "jump" in the shell. I saw the "SIG" led blink pretty fast and periodically. I thought it was morse code so I tried to use the logic analyzer to sample it. The problem was that apparently no pin was connected to the led so I just sampled directly the led base. Once I got the sequence I tried to analyze it as morse code but it didn't make sense. I noticed that che "CHALL" led blinked with the "SIG" one but at a higher frequency. I sampled both of them I undertood that CHALL was the clock for SIG so I applied to them the SPI analyzer of Saleae Logic.
 
+<img width="2241" height="2560" alt="photo_5897870918350999982_w" src="https://github.com/user-attachments/assets/97386e41-a629-47e7-b10f-0c4ebe64a039" />
 
-
+<img width="1390" height="274" alt="Screenshot From 2026-09-29 11-28-10" src="https://github.com/user-attachments/assets/be7f0db8-6522-4489-9558-6bea1df76a59" />
 
 The SIG led communicates with block of three bytes where the first one is always 0xF7 (MSB)/ 0xEF (LSB). This isn't a know protocol. After a wild guess I discovered that the flag was the second byte of each block LSB and with its bits negated. So I exported the data from Saleae Logic as data.csv and wrote a python script to get the flag.
 
