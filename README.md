@@ -43,10 +43,13 @@ Note that the difficulty level is chosen only by myself so it may differ from th
 | [Shush Protocol](https://github.com/T0mm1-byte/ctf-writeups/tree/main/HackTheBox/Shush%20Protocol) | Logic Signals/Protocols | Very Easy |
 | [Brick By Brick](https://github.com/T0mm1-byte/ctf-writeups/tree/main/UMassCTF/BrickByBrick) | Logic Signals/Protocols | Easy |
 | [Roman Wire](https://github.com/T0mm1-byte/ctf-writeups/tree/main/IranTechOlympicsCTF/Roman_Wire)| Logic Signals/Protocols | Easy |
+| [Sanity](https://github.com/T0mm1-byte/ctf-writeups/tree/main/TORX/Sanity)| Logic Signals/Protocols | Easy |
 | [Alpha](https://github.com/T0mm1-byte/ctf-writeups/tree/main/BYUCTF/Alpha) | Logic Signals/Protocols | Medium |
+| [Look at me](https://github.com/T0mm1-byte/ctf-writeups/tree/main/TORX/Look%20at%20me) | Logic Signals/Protocols | Medium |
 | [gasgasgas](https://github.com/T0mm1-byte/ctf-writeups/tree/main/CrewCTF/gasgasgas) | Logic Signals/Protocols | Medium |
 | [Mission Pinpossible](https://github.com/T0mm1-byte/ctf-writeups/tree/main/HackTheBox/Mission%20Pinpossible) | Logic Signals/Protocols | Medium |
 | [Sal](https://github.com/T0mm1-byte/ctf-writeups/tree/main/BYUCTF/Sal) | Logic Signals/Protocols | Medium |
+| [You read my mind](https://github.com/T0mm1-byte/ctf-writeups/tree/main/TORX/You%20read%20my%20mind) | Logic Signals/Protocols | Medium |
 | [Smart Coffee](https://github.com/T0mm1-byte/ctf-writeups/tree/main/QnQSecCTF/SmartCoffee) | Firmware Reversing | Very Easy |
 | [Firmware](https://github.com/T0mm1-byte/ctf-writeups/tree/main/GreyCTF/Firmware) | Firmware Reversing | Very Easy |
 | [The Needle](https://github.com/T0mm1-byte/ctf-writeups/tree/main/HackTheBox/The%20Needle) | Firmware Reversing | Easy |
