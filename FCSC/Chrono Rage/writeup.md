@@ -22,7 +22,7 @@ This challenge is made of a .py file that show us how the server works and a .pc
 
 The server takes max 16 bytes as input and uses AES CTR with a global counter to decrypt (or encrypt, is the same in CTR) the input and then calls a function to verify it. This function, check_password(), verifies one byte at the time doing a pretty long hash function on the byte of the encrypted input and the byte of the pin before comparing them. This is a clear vulnerability to a side channel attack based on time. Initially the attacker has to guess the pin length. check_password() does a check on length before starting the comparison so if the attacker's input has the right length it would take more time to get a response from the server since it would pass the length check and it's first byte will be processed. Following the TCP stream I saw that the attacker sent an input of different length until 12 bytes and from then he only sent inputs of 12 bytes so 12 is the right length. 
 
-
+<img width="1218" height="922" alt="Screenshot From 2026-10-07 12-50-45" src="https://github.com/user-attachments/assets/c38e9514-60cc-4f14-9e17-54f7240b5185" />
 
 In the .pcap file the attacker packets have in info 55986 -> 5000 [PSH, ACK] and the response from the server is 5000 -> 55986 [PSH, ACK]. After discovering the length I didn't really know what the attacker was sending. The pin has 12 digits so he had to bruteforce 10 values for 12 times. I have to admit that initially I was lost because to do the bruteforce the attacker had to leak the keystream but I had no idea about how he does it and I spent much time trying to figure it out. Then I just supposed he already leaked it in some way and that all the inputs he sent after he discovered the length were bruteforce attempts. So I did a script to join all the exchange after the first 12 and measure the time interval between the attacker's message and the server's response.
 
@@ -108,7 +108,7 @@ if __name__ == "__main__":
 
 The result was pretty clear:
 
-
+<img width="935" height="239" alt="Screenshot From 2026-10-07 14-11-30" src="https://github.com/user-attachments/assets/f75aebbf-62c7-4d00-b9a0-c4d24c979156" />
 
 The first row shows how the time spent for a 12 byte input is much higher than the one for any other length. Then there are 12 rows of 10 time measurements (except for the last one that has only four). Each row has a clear spike that is the correct byte. I supposed that the bruteforce was done from "0" to "9" at each level so the index of the spike in each row is a digit of the pin and the index of the row is the index of that digit in the pin. I slightly modify the last code to use these information to print the flag. The only strange case was the last row since it has only 4 values and there wasn't a clear spike. I tried the highest value but the flag was wrong. Then I thought that the attacker stopped after 4 values because at the last interaction verified the last digit of the pin and so it should be 3. Although it makes sense I don't know how the attcker should have understood that since it's measurement isn't a spike. Maybe there is a problem in my script? I guess it will remain a mystery for me. Still, I got the flag so it doesn't really matter.
 
