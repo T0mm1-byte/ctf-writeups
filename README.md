@@ -36,7 +36,9 @@ Note that the difficulty level is chosen only by myself so it may differ from th
 |-----------|------|------------|
 | [Integration Par Parties](https://github.com/T0mm1-byte/ctf-writeups/tree/main/FCSC/Integration%20Par%20Parties) | Side Channel | Easy |
 | [SCator](https://github.com/T0mm1-byte/ctf-writeups/tree/main/FCSC/SCator) | Side Channel | Easy |
-| [PWR_Tr4ce](https://github.com/T0mm1-byte/ctf-writeups/tree/main/ACSC/PWR_Tr4ce) | Side Channel | Medium |
+| [SPAnosaurus](https://github.com/T0mm1-byte/ctf-writeups/tree/main/FCSC/SPAnosaurus) | Side Channel | Easy |
+| [PWR_Tr4ce](https://github.com/T0mm1-byte/ctf-writeups/tree/main/ACSC/PWR_Tr4ce) | Side Channel | Easy |
+| [Chrono Rage](https://github.com/T0mm1-byte/ctf-writeups/tree/main/FCSC/Chrono%20Rage) | Side Channel | Medium |
 | [An4lyz3_1t](https://github.com/T0mm1-byte/ctf-writeups/tree/main/ACSC/An4lyz3_1t) | Logic Signals/Protocols | Very Easy |
 | [Debug](https://github.com/T0mm1-byte/ctf-writeups/tree/main/HackTheBox/Debug) | Logic Signals/Protocols | Very Easy |
 | [Debugging Interface](https://github.com/T0mm1-byte/ctf-writeups/tree/main/HackTheBox/Debugging%20Interface) | Logic Signals/Protocols | Very Easy |
@@ -69,6 +71,7 @@ Note that the difficulty level is chosen only by myself so it may differ from th
 | [Badd Circuit](https://github.com/T0mm1-byte/ctf-writeups/tree/main/FCSC/Badd%20Circuit) | HDL/PLC/PCB Reversing | Easy |
 | [Sbox](https://github.com/T0mm1-byte/ctf-writeups/tree/main/FCSC/Sbox) | HDL/PLC/PCB Reversing | Easy |
 | [Ne Pas Jeter l'Eponge](https://github.com/T0mm1-byte/ctf-writeups/tree/main/FCSC/Ne%20Pas%20Jeter%20Eponge) | HDL/PLC/PCB Reversing | Easy |
+| [Seven Sins](https://github.com/T0mm1-byte/ctf-writeups/tree/main/FCSC/Seven%20Sins) | HDL/PLC/PCB Reversing | Easy |
 | [Low Logic](https://github.com/T0mm1-byte/ctf-writeups/tree/main/HackTheBox/Low%20Logic) | HDL/PLC/PCB Reversing | Easy |
 | [It's Oops PM](https://github.com/T0mm1-byte/ctf-writeups/tree/main/HackTheBox/It's%20Oops%20PM) | HDL/PLC/PCB Reversing | Easy |
 | [Spy PLC](https://github.com/T0mm1-byte/ctf-writeups/tree/main/IranTechOlympicsCTF/Spy_PLC) | HDL/PLC/PCB Reversing | Easy |
