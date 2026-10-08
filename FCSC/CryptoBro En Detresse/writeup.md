@@ -43,11 +43,13 @@ plt.show()
 
 There was a pretty clear difference between 9001 and the other x001 and that made me understand the meaning of some sequences. I circled in blue the spike that indicates the start of the checking algorithm, in green the pattern that indicates a correct digit and in red the pattern that indicates an incorrect digit.
 
+<img width="1193" height="496" alt="trace_0001_evidenziata" src="https://github.com/user-attachments/assets/4fb26483-e559-49a1-97f9-8a750edbad60" />
 
+<img width="1193" height="496" alt="trace_9001_evidenziata" src="https://github.com/user-attachments/assets/c2d08b1d-e405-4304-897f-13aa824c5a8f" />
 
 In any other x001 there is only the incorrect sequence while in 9001 there is a correct pattern followed by an incorrect pattern, that means that 9 is the first digit. I followed this method bruteforcing by hand a digit at a time, knowing that I would have got the flag in max 40 tries, until I got the right combination with four correct patterns.
 
-
+<img width="1193" height="496" alt="Screenshot From 2026-10-09 00-44-57" src="https://github.com/user-attachments/assets/8ccbac4b-0419-4ac3-b36b-4a8395df5a42" />
 
 To generalize the method to N digits I wrote a script that bruteforce a digit at a time and recognize the different one by the position on the time axis of the peaks over 0.4 since a correct pattern pushes the peaks on the right.
 
