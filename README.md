@@ -37,6 +37,7 @@ Note that the difficulty level is chosen only by myself so it may differ from th
 | [Integration Par Parties](https://github.com/T0mm1-byte/ctf-writeups/tree/main/FCSC/Integration%20Par%20Parties) | Side Channel | Easy |
 | [SCator](https://github.com/T0mm1-byte/ctf-writeups/tree/main/FCSC/SCator) | Side Channel | Easy |
 | [SPAnosaurus](https://github.com/T0mm1-byte/ctf-writeups/tree/main/FCSC/SPAnosaurus) | Side Channel | Easy |
+| [Connaitre Ses Tables](https://github.com/T0mm1-byte/ctf-writeups/tree/main/FCSC/Connaitre%20Ses%20Tables) | Side Channel | Easy |
 | [PWR_Tr4ce](https://github.com/T0mm1-byte/ctf-writeups/tree/main/ACSC/PWR_Tr4ce) | Side Channel | Easy |
 | [Chrono Rage](https://github.com/T0mm1-byte/ctf-writeups/tree/main/FCSC/Chrono%20Rage) | Side Channel | Medium |
 | [An4lyz3_1t](https://github.com/T0mm1-byte/ctf-writeups/tree/main/ACSC/An4lyz3_1t) | Logic Signals/Protocols | Very Easy |
