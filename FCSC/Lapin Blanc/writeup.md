@@ -75,8 +75,9 @@ io.close()
 
 My idea was to test if there is a strlen with a reasonable length (max 40 chars) or if I have to directly bruteforce a char at a time trying each ascii printable byte followed by a b"A". After collecting the samples of the two cases, the script plots them so that I can see if there is some anomaly.
 
+<img width="1759" height="839" alt="Screenshot From 2026-10-09 10-17-59" src="https://github.com/user-attachments/assets/da82c648-80fc-48a3-bfe0-64eb2fac5f1e" />
 
-
+<img width="1759" height="839" alt="Screenshot From 2026-10-09 10-16-24" src="https://github.com/user-attachments/assets/3823abf9-1eb7-4d25-bdbb-bf373a291fa4" />
 
 It didn't seem to be a strlen, I ran the script a couple of times and the values were always pretty equal. Instead, the char bruteforce has a clearly spike when the first character is "I". I ran it a couple of times and it was always "I". My conclusion was that there isn't a strlen and that the passphrase is constant. Still I didn't know the length so I did the laziest thing I could think of: after each bruteforce I added the new char to the ones already discovered and I printed the whole passphrase until then. I chose a pretty big range (60) with the intention to stop when I started seeing gibberish.
 
@@ -105,10 +106,10 @@ io.close()
 
 Fortunately the passphrase was plain English so it was easy to spot its end.
 
-
+<img width="562" height="886" alt="Screenshot From 2026-10-09 10-31-26" src="https://github.com/user-attachments/assets/01dd5dee-d6ca-4bfc-a822-b0406b93a7ff" />
 
 At this point I just used nc to connect to the server and put the phrase as input.
 
-
+<img width="567" height="385" alt="Screenshot From 2026-10-09 10-30-21" src="https://github.com/user-attachments/assets/32281d43-306a-4818-8d17-7cb0e53f0627" />
 
 The flag is *FCSC{t1m1Ng_1s_K3y_8u7_74K1nG_u00r_t1mE_is_NEce554rY}*
