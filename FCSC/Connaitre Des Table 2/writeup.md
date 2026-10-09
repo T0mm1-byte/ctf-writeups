@@ -1,0 +1,114 @@
+# Connaitre Ses Tables 2
+
+CTF: FCSC 2024
+
+Category: hardware
+
+Author: Neige
+
+## Description
+
+Benoît Blanc thinks he’s managed to hide his AES key in tables.
+
+He provides you with the code written in C to use them, for example:
+
+```shell
+$ make
+$ ./wb-aes keys.bin < /dev/zero
+a53c3200a5c8ba9c134016e744dacf5c
+```
+
+In addition, a table for the following key is provided in the key-public.bin file:
+
+8e 73 b0 f7 da 0e 64 52 c8 10 f3 2b
+80 90 79 e5 62 f8 ea d2 52 2c 6b 7b
+
+He encrypted the flag using the SHA256 of this key (see output.txt):
+
+```python
+def encrypt(k, flag):
+    import hashlib
+    from Crypto.Cipher import AES
+    hk = hashlib.sha256(k).digest()
+    E = AES.new(hk, AES.MODE_GCM)
+    iv = E.nonce
+    c = E.encrypt(flag)
+    return {"c": c.hex(), "iv": iv.hex()}
+```
+
+## Overview
+
+This challenge is made by the same files of it's [first part](https://github.com/T0mm1-byte/ctf-writeups/tree/main/FCSC/Connaitre%20Ses%20Tables) that I suggest to look at before reading this writeup. Obviously keys.bin is different this time and there is keys-public.bin to help to retrieve the key. 
+
+## Solution
+
+The first thing I did was to run the solver.py that I wrote for the previous challenge but obviously it didn't work. Since AddRoundKey is embedded in Sbox it must be true that the scrambledSbox should be such that Sbox[state[i] ^ roundkey[i]] == scrambledSbox[state[i]]. Well, that is what I assumed for the first version but there is another case. The other two operation, ShiftRows and MixColumns, are linear so its possible to apply a mask at the scrambleSboxes that I'll customSboxes such that customSbox = scrambledSbox[i] ^ mask where mask is just one byte that may be the same or be different for each customSboxes. The mask is chosen in a way that it deletes itself at the end of the rounds. In this way it isn't strictly AES but the result is the same. The goal is to find a pair k, m such that Sbox[i] == customSbox[i ^ k] ^ m for each i. I decided to bruteforce it since try each combination k, m for 24 tables is feasible. 
+
+```python
+from hashlib import sha256
+from Crypto.Cipher import AES
+
+Sbox = [
+    0x63, 0x7c, 0x77, 0x7b, 0xf2, 0x6b, 0x6f, 0xc5, 0x30, 0x01, 0x67, 0x2b, 0xfe, 0xd7, 0xab, 0x76,
+    0xca, 0x82, 0xc9, 0x7d, 0xfa, 0x59, 0x47, 0xf0, 0xad, 0xd4, 0xa2, 0xaf, 0x9c, 0xa4, 0x72, 0xc0,
+    0xb7, 0xfd, 0x93, 0x26, 0x36, 0x3f, 0xf7, 0xcc, 0x34, 0xa5, 0xe5, 0xf1, 0x71, 0xd8, 0x31, 0x15,
+    0x04, 0xc7, 0x23, 0xc3, 0x18, 0x96, 0x05, 0x9a, 0x07, 0x12, 0x80, 0xe2, 0xeb, 0x27, 0xb2, 0x75,
+    0x09, 0x83, 0x2c, 0x1a, 0x1b, 0x6e, 0x5a, 0xa0, 0x52, 0x3b, 0xd6, 0xb3, 0x29, 0xe3, 0x2f, 0x84,
+    0x53, 0xd1, 0x00, 0xed, 0x20, 0xfc, 0xb1, 0x5b, 0x6a, 0xcb, 0xbe, 0x39, 0x4a, 0x4c, 0x58, 0xcf,
+    0xd0, 0xef, 0xaa, 0xfb, 0x43, 0x4d, 0x33, 0x85, 0x45, 0xf9, 0x02, 0x7f, 0x50, 0x3c, 0x9f, 0xa8,
+    0x51, 0xa3, 0x40, 0x8f, 0x92, 0x9d, 0x38, 0xf5, 0xbc, 0xb6, 0xda, 0x21, 0x10, 0xff, 0xf3, 0xd2,
+    0xcd, 0x0c, 0x13, 0xec, 0x5f, 0x97, 0x44, 0x17, 0xc4, 0xa7, 0x7e, 0x3d, 0x64, 0x5d, 0x19, 0x73,
+    0x60, 0x81, 0x4f, 0xdc, 0x22, 0x2a, 0x90, 0x88, 0x46, 0xee, 0xb8, 0x14, 0xde, 0x5e, 0x0b, 0xdb,
+    0xe0, 0x32, 0x3a, 0x0a, 0x49, 0x06, 0x24, 0x5c, 0xc2, 0xd3, 0xac, 0x62, 0x91, 0x95, 0xe4, 0x79,
+    0xe7, 0xc8, 0x37, 0x6d, 0x8d, 0xd5, 0x4e, 0xa9, 0x6c, 0x56, 0xf4, 0xea, 0x65, 0x7a, 0xae, 0x08,
+    0xba, 0x78, 0x25, 0x2e, 0x1c, 0xa6, 0xb4, 0xc6, 0xe8, 0xdd, 0x74, 0x1f, 0x4b, 0xbd, 0x8b, 0x8a,
+    0x70, 0x3e, 0xb5, 0x66, 0x48, 0x03, 0xf6, 0x0e, 0x61, 0x35, 0x57, 0xb9, 0x86, 0xc1, 0x1d, 0x9e,
+    0xe1, 0xf8, 0x98, 0x11, 0x69, 0xd9, 0x8e, 0x94, 0x9b, 0x1e, 0x87, 0xe9, 0xce, 0x55, 0x28, 0xdf,
+    0x8c, 0xa1, 0x89, 0x0d, 0xbf, 0xe6, 0x42, 0x68, 0x41, 0x99, 0x2d, 0x0f, 0xb0, 0x54, 0xbb, 0x16,
+]
+
+SR = [0, 5, 10, 15, 4, 9, 14, 3, 8, 13, 2, 7, 12, 1, 6, 11]  
+
+def xt(a):
+    return ((a << 1) ^ (0x1b if a & 0x80 else 0)) & 0xff
+
+def mix_columns(v):
+    o = []
+    for c in range(4):
+        a = v[4*c:4*c+4]
+        for r in range(4):
+            o.append(xt(a[r]) ^ xt(a[(r+1) % 4]) ^ a[(r+1) % 4] ^ a[(r+2) % 4] ^ a[(r+3) % 4])
+    return o
+
+with open("keys.bin", "rb") as f:
+    data = f.read()
+
+def table(rnd, i):
+    off = ((rnd - 1) * 16 + i) * 256
+    return data[off:off + 256]
+
+def split(T):
+    for a in range(256):
+        b = T[0] ^ Sbox[a]
+        if all(T[x] == Sbox[x ^ a] ^ b for x in range(256)):
+            return a, b
+
+r1 = [split(table(1, i)) for i in range(16)]
+K0 = [a for a, _ in r1]
+m1 = [b for _, b in r1]
+
+m2_in = mix_columns([m1[SR[i]] for i in range(16)])
+K1 = [split(table(2, i))[0] ^ m2_in[i] for i in range(16)]
+
+key = bytes(K0 + K1[:8])
+
+c = bytes.fromhex("624b81bf4afad899275cad4ec2db4a9d7a412114e0c013200c144948b6557f568b0a3fc42e6bf731a82dfbb50b15ab52298d926ad6f761e1a0e1bab802145b22cbe208519303")
+iv = bytes.fromhex("abe90e7a85617cde931fdf5f8f18c81c")
+cipher = AES.new(sha256(key).digest(), AES.MODE_GCM, nonce=iv)
+print(cipher.decrypt(c).decode())
+```
+
+Honestly I don't know what key-public.bin's purpose is, I solved the challenge without using it.
+The flag is *FCSC{de12cab1150017ce5e9751e968e8304ee60557bb67592796f3f0115bd5c8598e}*
+
+
