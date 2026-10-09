@@ -40,7 +40,9 @@ Note that the difficulty level is chosen only by myself so it may differ from th
 | [SPAnosaurus](https://github.com/T0mm1-byte/ctf-writeups/tree/main/FCSC/SPAnosaurus) | Side Channel | Easy |
 | [Connaitre Ses Tables](https://github.com/T0mm1-byte/ctf-writeups/tree/main/FCSC/Connaitre%20Ses%20Tables) | Side Channel | Easy |
 | [PWR_Tr4ce](https://github.com/T0mm1-byte/ctf-writeups/tree/main/ACSC/PWR_Tr4ce) | Side Channel | Easy |
+| [Lapin Blanc](https://github.com/T0mm1-byte/ctf-writeups/tree/main/FCSC/Lapin%20Blanc) | Side Channel | Medium |
 | [Chrono Rage](https://github.com/T0mm1-byte/ctf-writeups/tree/main/FCSC/Chrono%20Rage) | Side Channel | Medium |
+| [Connaitre Ses Tables 2](https://github.com/T0mm1-byte/ctf-writeups/tree/main/FCSC/Connaitre%20Des%20Table%202) | Side Channel | Medium |
 | [An4lyz3_1t](https://github.com/T0mm1-byte/ctf-writeups/tree/main/ACSC/An4lyz3_1t) | Logic Signals/Protocols | Very Easy |
 | [Debug](https://github.com/T0mm1-byte/ctf-writeups/tree/main/HackTheBox/Debug) | Logic Signals/Protocols | Very Easy |
 | [Debugging Interface](https://github.com/T0mm1-byte/ctf-writeups/tree/main/HackTheBox/Debugging%20Interface) | Logic Signals/Protocols | Very Easy |
