@@ -44,6 +44,7 @@ Note that the difficulty level is chosen only by myself so it may differ from th
 | [Chrono Rage](https://github.com/T0mm1-byte/ctf-writeups/tree/main/FCSC/Chrono%20Rage) | Side Channel | Medium |
 | [Myster Mask](https://github.com/T0mm1-byte/ctf-writeups/tree/main/FCSC/Myster%20Mask) | Side Channel | Medium |
 | [Connaitre Ses Tables 2](https://github.com/T0mm1-byte/ctf-writeups/tree/main/FCSC/Connaitre%20Des%20Table%202) | Side Channel | Medium |
+| [SCHaiku](https://github.com/T0mm1-byte/ctf-writeups/tree/main/FCSC/SCHaiku) | Side Channel | Hard |
 | [An4lyz3_1t](https://github.com/T0mm1-byte/ctf-writeups/tree/main/ACSC/An4lyz3_1t) | Logic Signals/Protocols | Very Easy |
 | [Debug](https://github.com/T0mm1-byte/ctf-writeups/tree/main/HackTheBox/Debug) | Logic Signals/Protocols | Very Easy |
 | [Debugging Interface](https://github.com/T0mm1-byte/ctf-writeups/tree/main/HackTheBox/Debugging%20Interface) | Logic Signals/Protocols | Very Easy |
