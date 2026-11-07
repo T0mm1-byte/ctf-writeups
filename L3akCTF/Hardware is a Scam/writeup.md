@@ -20,7 +20,7 @@ This challenge is made of a .png file that contains a logisim circuit schematics
 
 ## Solution
 
-This challenge is basically a more tedious (and way way longer) version of [Software is a Scam]() and I suggest to take a look at that writeup before continuing to read this one because all I said there is still valid and I won't repeat myself. The only news are a logical shift right block and a division block that I decided to treat as an unsigned 8 bit division.
+This challenge is basically a more tedious (and way way longer) version of [Software is a Scam](https://github.com/T0mm1-byte/ctf-writeups/tree/main/L3akCTF/Software%20is%20a%20Scam) and I suggest to take a look at that writeup before continuing to read this one because all I said there is still valid and I won't repeat myself. The only news are a logical shift right block and a division block that I decided to treat as an unsigned 8 bit division.
 Here's the script:
 
 ```python
