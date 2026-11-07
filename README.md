@@ -81,5 +81,8 @@ Note that the difficulty level is chosen only by myself so it may differ from th
 | [Low Logic](https://github.com/T0mm1-byte/ctf-writeups/tree/main/HackTheBox/Low%20Logic) | HDL/PLC/PCB Reversing | Easy |
 | [It's Oops PM](https://github.com/T0mm1-byte/ctf-writeups/tree/main/HackTheBox/It's%20Oops%20PM) | HDL/PLC/PCB Reversing | Easy |
 | [Spy PLC](https://github.com/T0mm1-byte/ctf-writeups/tree/main/IranTechOlympicsCTF/Spy_PLC) | HDL/PLC/PCB Reversing | Easy |
+| [Software is a Scam](https://github.com/T0mm1-byte/ctf-writeups/tree/main/L3akCTF/Software%20is%20a%20Scam) | HDL/PLC/PCB Reversing | Medium |
 | [eXORbitant](https://github.com/T0mm1-byte/ctf-writeups/tree/main/L3akCTF/eXORbitant) | HDL/PLC/PCB Reversing | Medium |
 | [VHDLCG](https://github.com/T0mm1-byte/ctf-writeups/tree/main/L3akCTF/VHDLCG(crypto)) | HDL/PLC/PCB Reversing | Medium |
+| [Hardware is a Scam](https://github.com/T0mm1-byte/ctf-writeups/tree/main/L3akCTF/Hardware%20is%20a%20Scam) | HDL/PLC/PCB Reversing | Medium |
+| [Digital is a Scam](https://github.com/T0mm1-byte/ctf-writeups/tree/main/L3akCTF/Digital%20is%20a%20Scam) | HDL/PLC/PCB Reversing | Hard |
