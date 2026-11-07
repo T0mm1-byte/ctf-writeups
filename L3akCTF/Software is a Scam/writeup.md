@@ -17,8 +17,8 @@ This challenge is made of a .png file that contains the image of a circuit
 ## Solution
 
 The circuit has 20 entries, named from C1 to C20, and a single exit. I supposed each C_i is a byte of the flag and that the right combination should get a 1 as a output. The idea was to recreate the circuit in python and to use z3 to solve it. Here some assunctions I made: 
-- each line should be made of 8 bits so if overflows or underflows of ADD, SUB and MUL gates must be ignored. In practice I did a logic AND 0xFF to always keep the 8 least significant bits. These operations cosider the inputs as unsigned bytes.
-- the point above isn't true for the output or COMP blocks that produce a boolean value.
+- each line should be made of 8 bits so overflows or underflows of ADD, SUB and MUL gates must be ignored. Practically I did a logic AND 0xFF to always keep the 8 least significant bits. These operations cosider the inputs as unsigned bytes.
+- the point above isn't true for the output of COMP blocks that produce a boolean value.
 - there is a block with just a <-, since it has two inputs and one of those is 2 I considered it as a logical shift left.
 - each logic gate operates bitwise.
 - The behaviour of COMP blocks depends on inputs: if its inputs a and b are 8 bits values then it performs a == b and returns a boolean, else if they are 1 bit boolean values (from other COMP blocks) it performs a & b to filter out the cases where a = b = 0 so the output will be 1 only if a = b = 1.
